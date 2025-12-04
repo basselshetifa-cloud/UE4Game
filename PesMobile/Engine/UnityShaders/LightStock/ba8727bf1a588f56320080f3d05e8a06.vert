@@ -1,0 +1,483 @@
+#version 310 es
+
+#define INTERFACE_LOCATION(Pos) layout(location=Pos) 
+#define INTERFACE_BLOCK(Pos, Interp, Modifiers, Semantic, PreType, PostType) layout(location=Pos) Modifiers Semantic { PreType PostType; }
+#define HLSLCC_DX11ClipSpace 1 
+
+
+// end extensions
+layout(std140) uniform vb0
+{
+#define View_TranslatedWorldToClip View_TranslatedWorldToClipvb0
+	highp mat4 View_TranslatedWorldToClip;
+#define View_WorldToClip View_WorldToClipvb0
+	highp mat4 View_WorldToClip;
+#define View_ClipToWorld View_ClipToWorldvb0
+	highp mat4 View_ClipToWorld;
+#define View_TranslatedWorldToView View_TranslatedWorldToViewvb0
+	highp mat4 View_TranslatedWorldToView;
+#define View_ViewToTranslatedWorld View_ViewToTranslatedWorldvb0
+	highp mat4 View_ViewToTranslatedWorld;
+#define View_TranslatedWorldToCameraView View_TranslatedWorldToCameraViewvb0
+	highp mat4 View_TranslatedWorldToCameraView;
+#define View_CameraViewToTranslatedWorld View_CameraViewToTranslatedWorldvb0
+	highp mat4 View_CameraViewToTranslatedWorld;
+#define View_ViewToClip View_ViewToClipvb0
+	highp mat4 View_ViewToClip;
+#define View_ViewToClipNoAA View_ViewToClipNoAAvb0
+	highp mat4 View_ViewToClipNoAA;
+#define View_ClipToView View_ClipToViewvb0
+	highp mat4 View_ClipToView;
+#define View_ClipToTranslatedWorld View_ClipToTranslatedWorldvb0
+	highp mat4 View_ClipToTranslatedWorld;
+#define View_SVPositionToTranslatedWorld View_SVPositionToTranslatedWorldvb0
+	highp mat4 View_SVPositionToTranslatedWorld;
+#define View_ScreenToWorld View_ScreenToWorldvb0
+	highp mat4 View_ScreenToWorld;
+#define View_ScreenToTranslatedWorld View_ScreenToTranslatedWorldvb0
+	highp mat4 View_ScreenToTranslatedWorld;
+#define View_ViewForward View_ViewForwardvb0
+	vec3 View_ViewForward;
+#define PrePadding_View_908 PrePadding_View_908vb0
+	float PrePadding_View_908;
+#define View_ViewUp View_ViewUpvb0
+	vec3 View_ViewUp;
+#define PrePadding_View_924 PrePadding_View_924vb0
+	float PrePadding_View_924;
+#define View_ViewRight View_ViewRightvb0
+	vec3 View_ViewRight;
+#define PrePadding_View_940 PrePadding_View_940vb0
+	float PrePadding_View_940;
+#define View_HMDViewNoRollUp View_HMDViewNoRollUpvb0
+	vec3 View_HMDViewNoRollUp;
+#define PrePadding_View_956 PrePadding_View_956vb0
+	float PrePadding_View_956;
+#define View_HMDViewNoRollRight View_HMDViewNoRollRightvb0
+	vec3 View_HMDViewNoRollRight;
+#define PrePadding_View_972 PrePadding_View_972vb0
+	float PrePadding_View_972;
+#define View_InvDeviceZToWorldZTransform View_InvDeviceZToWorldZTransformvb0
+	highp vec4 View_InvDeviceZToWorldZTransform;
+#define View_ScreenPositionScaleBias View_ScreenPositionScaleBiasvb0
+	vec4 View_ScreenPositionScaleBias;
+#define View_WorldCameraOrigin View_WorldCameraOriginvb0
+	highp vec3 View_WorldCameraOrigin;
+#define PrePadding_View_1020 PrePadding_View_1020vb0
+	highp float PrePadding_View_1020;
+#define View_TranslatedWorldCameraOrigin View_TranslatedWorldCameraOriginvb0
+	highp vec3 View_TranslatedWorldCameraOrigin;
+#define PrePadding_View_1036 PrePadding_View_1036vb0
+	highp float PrePadding_View_1036;
+#define View_WorldViewOrigin View_WorldViewOriginvb0
+	highp vec3 View_WorldViewOrigin;
+#define PrePadding_View_1052 PrePadding_View_1052vb0
+	highp float PrePadding_View_1052;
+#define View_PreViewTranslation View_PreViewTranslationvb0
+	highp vec3 View_PreViewTranslation;
+#define PrePadding_View_1068 PrePadding_View_1068vb0
+	highp float PrePadding_View_1068;
+#define View_PrevProjection View_PrevProjectionvb0
+	highp mat4 View_PrevProjection;
+#define View_PrevViewProj View_PrevViewProjvb0
+	highp mat4 View_PrevViewProj;
+#define View_PrevViewRotationProj View_PrevViewRotationProjvb0
+	highp mat4 View_PrevViewRotationProj;
+#define View_PrevViewToClip View_PrevViewToClipvb0
+	highp mat4 View_PrevViewToClip;
+#define View_PrevClipToView View_PrevClipToViewvb0
+	highp mat4 View_PrevClipToView;
+#define View_PrevTranslatedWorldToClip View_PrevTranslatedWorldToClipvb0
+	highp mat4 View_PrevTranslatedWorldToClip;
+#define View_PrevTranslatedWorldToView View_PrevTranslatedWorldToViewvb0
+	highp mat4 View_PrevTranslatedWorldToView;
+#define View_PrevViewToTranslatedWorld View_PrevViewToTranslatedWorldvb0
+	highp mat4 View_PrevViewToTranslatedWorld;
+#define View_PrevTranslatedWorldToCameraView View_PrevTranslatedWorldToCameraViewvb0
+	highp mat4 View_PrevTranslatedWorldToCameraView;
+#define View_PrevCameraViewToTranslatedWorld View_PrevCameraViewToTranslatedWorldvb0
+	highp mat4 View_PrevCameraViewToTranslatedWorld;
+#define View_PrevWorldCameraOrigin View_PrevWorldCameraOriginvb0
+	highp vec3 View_PrevWorldCameraOrigin;
+#define PrePadding_View_1724 PrePadding_View_1724vb0
+	highp float PrePadding_View_1724;
+#define View_PrevWorldViewOrigin View_PrevWorldViewOriginvb0
+	highp vec3 View_PrevWorldViewOrigin;
+#define PrePadding_View_1740 PrePadding_View_1740vb0
+	highp float PrePadding_View_1740;
+#define View_PrevPreViewTranslation View_PrevPreViewTranslationvb0
+	highp vec3 View_PrevPreViewTranslation;
+#define PrePadding_View_1756 PrePadding_View_1756vb0
+	highp float PrePadding_View_1756;
+#define View_PrevInvViewProj View_PrevInvViewProjvb0
+	highp mat4 View_PrevInvViewProj;
+#define View_PrevScreenToTranslatedWorld View_PrevScreenToTranslatedWorldvb0
+	highp mat4 View_PrevScreenToTranslatedWorld;
+#define View_ClipToPrevClip View_ClipToPrevClipvb0
+	highp mat4 View_ClipToPrevClip;
+#define View_TemporalAAJitter View_TemporalAAJittervb0
+	highp vec4 View_TemporalAAJitter;
+#define View_GlobalClippingPlane View_GlobalClippingPlanevb0
+	highp vec4 View_GlobalClippingPlane;
+#define View_FieldOfViewWideAngles View_FieldOfViewWideAnglesvb0
+	highp vec2 View_FieldOfViewWideAngles;
+#define View_PrevFieldOfViewWideAngles View_PrevFieldOfViewWideAnglesvb0
+	highp vec2 View_PrevFieldOfViewWideAngles;
+#define View_ViewRectMin View_ViewRectMinvb0
+	vec4 View_ViewRectMin;
+#define View_ViewSizeAndInvSize View_ViewSizeAndInvSizevb0
+	highp vec4 View_ViewSizeAndInvSize;
+#define View_BufferSizeAndInvSize View_BufferSizeAndInvSizevb0
+	highp vec4 View_BufferSizeAndInvSize;
+#define View_BufferBilinearUVMinMax View_BufferBilinearUVMinMaxvb0
+	highp vec4 View_BufferBilinearUVMinMax;
+#define View_NumSceneColorMSAASamples View_NumSceneColorMSAASamplesvb0
+	highp int View_NumSceneColorMSAASamples;
+#define View_PreExposure View_PreExposurevb0
+	float View_PreExposure;
+#define View_OneOverPreExposure View_OneOverPreExposurevb0
+	float View_OneOverPreExposure;
+#define PrePadding_View_2076 PrePadding_View_2076vb0
+	float PrePadding_View_2076;
+#define View_DiffuseOverrideParameter View_DiffuseOverrideParametervb0
+	vec4 View_DiffuseOverrideParameter;
+#define View_SpecularOverrideParameter View_SpecularOverrideParametervb0
+	vec4 View_SpecularOverrideParameter;
+#define View_NormalOverrideParameter View_NormalOverrideParametervb0
+	vec4 View_NormalOverrideParameter;
+#define View_RoughnessOverrideParameter View_RoughnessOverrideParametervb0
+	vec2 View_RoughnessOverrideParameter;
+#define View_PrevFrameGameTime View_PrevFrameGameTimevb0
+	highp float View_PrevFrameGameTime;
+#define View_PrevFrameRealTime View_PrevFrameRealTimevb0
+	highp float View_PrevFrameRealTime;
+#define View_OutOfBoundsMask View_OutOfBoundsMaskvb0
+	float View_OutOfBoundsMask;
+#define PrePadding_View_2148 PrePadding_View_2148vb0
+	float PrePadding_View_2148;
+#define PrePadding_View_2152 PrePadding_View_2152vb0
+	float PrePadding_View_2152;
+#define PrePadding_View_2156 PrePadding_View_2156vb0
+	float PrePadding_View_2156;
+#define View_WorldCameraMovementSinceLastFrame View_WorldCameraMovementSinceLastFramevb0
+	highp vec3 View_WorldCameraMovementSinceLastFrame;
+#define View_CullingSign View_CullingSignvb0
+	highp float View_CullingSign;
+#define View_NearPlane View_NearPlanevb0
+	float View_NearPlane;
+#define View_AdaptiveTessellationFactor View_AdaptiveTessellationFactorvb0
+	highp float View_AdaptiveTessellationFactor;
+#define View_GameTime View_GameTimevb0
+	highp float View_GameTime;
+#define View_RealTime View_RealTimevb0
+	highp float View_RealTime;
+#define View_DeltaTime View_DeltaTimevb0
+	highp float View_DeltaTime;
+#define View_MaterialTextureMipBias View_MaterialTextureMipBiasvb0
+	highp float View_MaterialTextureMipBias;
+#define View_MaterialTextureDerivativeMultiply View_MaterialTextureDerivativeMultiplyvb0
+	highp float View_MaterialTextureDerivativeMultiply;
+#define View_Random View_Randomvb0
+	highp uint View_Random;
+#define View_FrameNumber View_FrameNumbervb0
+	highp uint View_FrameNumber;
+#define View_StateFrameIndexMod8 View_StateFrameIndexMod8vb0
+	highp uint View_StateFrameIndexMod8;
+#define View_StateFrameIndex View_StateFrameIndexvb0
+	highp uint View_StateFrameIndex;
+#define View_CameraCut View_CameraCutvb0
+	float View_CameraCut;
+#define View_UnlitViewmodeMask View_UnlitViewmodeMaskvb0
+	float View_UnlitViewmodeMask;
+#define PrePadding_View_2228 PrePadding_View_2228vb0
+	float PrePadding_View_2228;
+#define PrePadding_View_2232 PrePadding_View_2232vb0
+	float PrePadding_View_2232;
+#define PrePadding_View_2236 PrePadding_View_2236vb0
+	float PrePadding_View_2236;
+#define View_DirectionalLightColor View_DirectionalLightColorvb0
+	vec4 View_DirectionalLightColor;
+#define View_DirectionalLightDirection View_DirectionalLightDirectionvb0
+	vec3 View_DirectionalLightDirection;
+#define PrePadding_View_2268 PrePadding_View_2268vb0
+	float PrePadding_View_2268;
+#define View_TranslucencyLightingVolumeMin View_TranslucencyLightingVolumeMinvb0
+	highp vec4 View_TranslucencyLightingVolumeMin[2];
+#define View_TranslucencyLightingVolumeInvSize View_TranslucencyLightingVolumeInvSizevb0
+	highp vec4 View_TranslucencyLightingVolumeInvSize[2];
+#define View_TemporalAAParams View_TemporalAAParamsvb0
+	highp vec4 View_TemporalAAParams;
+#define View_CircleDOFParams View_CircleDOFParamsvb0
+	highp vec4 View_CircleDOFParams;
+#define View_DepthOfFieldSensorWidth View_DepthOfFieldSensorWidthvb0
+	highp float View_DepthOfFieldSensorWidth;
+#define View_DepthOfFieldFocalDistance View_DepthOfFieldFocalDistancevb0
+	highp float View_DepthOfFieldFocalDistance;
+#define View_DepthOfFieldScale View_DepthOfFieldScalevb0
+	highp float View_DepthOfFieldScale;
+#define View_DepthOfFieldFocalLength View_DepthOfFieldFocalLengthvb0
+	highp float View_DepthOfFieldFocalLength;
+#define View_DepthOfFieldFocalRegion View_DepthOfFieldFocalRegionvb0
+	highp float View_DepthOfFieldFocalRegion;
+#define View_DepthOfFieldNearTransitionRegion View_DepthOfFieldNearTransitionRegionvb0
+	highp float View_DepthOfFieldNearTransitionRegion;
+#define View_DepthOfFieldFarTransitionRegion View_DepthOfFieldFarTransitionRegionvb0
+	highp float View_DepthOfFieldFarTransitionRegion;
+#define View_MotionBlurNormalizedToPixel View_MotionBlurNormalizedToPixelvb0
+	highp float View_MotionBlurNormalizedToPixel;
+#define View_bSubsurfacePostprocessEnabled View_bSubsurfacePostprocessEnabledvb0
+	highp float View_bSubsurfacePostprocessEnabled;
+#define View_GeneralPurposeTweak View_GeneralPurposeTweakvb0
+	highp float View_GeneralPurposeTweak;
+#define View_DemosaicVposOffset View_DemosaicVposOffsetvb0
+	float View_DemosaicVposOffset;
+#define PrePadding_View_2412 PrePadding_View_2412vb0
+	float PrePadding_View_2412;
+#define View_IndirectLightingColorScale View_IndirectLightingColorScalevb0
+	highp vec3 View_IndirectLightingColorScale;
+#define View_HDR32bppEncodingMode View_HDR32bppEncodingModevb0
+	float View_HDR32bppEncodingMode;
+#define View_AtmosphericFogSunDirection View_AtmosphericFogSunDirectionvb0
+	highp vec3 View_AtmosphericFogSunDirection;
+#define View_AtmosphericFogSunPower View_AtmosphericFogSunPowervb0
+	float View_AtmosphericFogSunPower;
+#define View_AtmosphericFogPower View_AtmosphericFogPowervb0
+	float View_AtmosphericFogPower;
+#define View_AtmosphericFogDensityScale View_AtmosphericFogDensityScalevb0
+	float View_AtmosphericFogDensityScale;
+#define View_AtmosphericFogDensityOffset View_AtmosphericFogDensityOffsetvb0
+	float View_AtmosphericFogDensityOffset;
+#define View_AtmosphericFogGroundOffset View_AtmosphericFogGroundOffsetvb0
+	float View_AtmosphericFogGroundOffset;
+#define View_AtmosphericFogDistanceScale View_AtmosphericFogDistanceScalevb0
+	float View_AtmosphericFogDistanceScale;
+#define View_AtmosphericFogAltitudeScale View_AtmosphericFogAltitudeScalevb0
+	float View_AtmosphericFogAltitudeScale;
+#define View_AtmosphericFogHeightScaleRayleigh View_AtmosphericFogHeightScaleRayleighvb0
+	float View_AtmosphericFogHeightScaleRayleigh;
+#define View_AtmosphericFogStartDistance View_AtmosphericFogStartDistancevb0
+	float View_AtmosphericFogStartDistance;
+#define View_AtmosphericFogDistanceOffset View_AtmosphericFogDistanceOffsetvb0
+	float View_AtmosphericFogDistanceOffset;
+#define View_AtmosphericFogSunDiscScale View_AtmosphericFogSunDiscScalevb0
+	float View_AtmosphericFogSunDiscScale;
+#define View_AtmosphericFogRenderMask View_AtmosphericFogRenderMaskvb0
+	highp uint View_AtmosphericFogRenderMask;
+#define View_AtmosphericFogInscatterAltitudeSampleNum View_AtmosphericFogInscatterAltitudeSampleNumvb0
+	highp uint View_AtmosphericFogInscatterAltitudeSampleNum;
+#define View_AtmosphericFogSunColor View_AtmosphericFogSunColorvb0
+	highp vec4 View_AtmosphericFogSunColor;
+#define View_NormalCurvatureToRoughnessScaleBias View_NormalCurvatureToRoughnessScaleBiasvb0
+	highp vec3 View_NormalCurvatureToRoughnessScaleBias;
+#define View_RenderingReflectionCaptureMask View_RenderingReflectionCaptureMaskvb0
+	highp float View_RenderingReflectionCaptureMask;
+#define View_AmbientCubemapTint View_AmbientCubemapTintvb0
+	highp vec4 View_AmbientCubemapTint;
+#define View_AmbientCubemapIntensity View_AmbientCubemapIntensityvb0
+	highp float View_AmbientCubemapIntensity;
+#define View_SkyLightParameters View_SkyLightParametersvb0
+	highp float View_SkyLightParameters;
+#define PrePadding_View_2552 PrePadding_View_2552vb0
+	highp float PrePadding_View_2552;
+#define PrePadding_View_2556 PrePadding_View_2556vb0
+	highp float PrePadding_View_2556;
+#define View_SkyLightColor View_SkyLightColorvb0
+	highp vec4 View_SkyLightColor;
+#define View_SkyIrradianceEnvironmentMap View_SkyIrradianceEnvironmentMapvb0
+	highp vec4 View_SkyIrradianceEnvironmentMap[7];
+#define View_MobilePreviewMode View_MobilePreviewModevb0
+	highp float View_MobilePreviewMode;
+#define View_HMDEyePaddingOffset View_HMDEyePaddingOffsetvb0
+	highp float View_HMDEyePaddingOffset;
+#define View_ReflectionCubemapMaxMip View_ReflectionCubemapMaxMipvb0
+	float View_ReflectionCubemapMaxMip;
+#define View_ShowDecalsMask View_ShowDecalsMaskvb0
+	highp float View_ShowDecalsMask;
+#define View_DistanceFieldAOSpecularOcclusionMode View_DistanceFieldAOSpecularOcclusionModevb0
+	highp uint View_DistanceFieldAOSpecularOcclusionMode;
+#define View_IndirectCapsuleSelfShadowingIntensity View_IndirectCapsuleSelfShadowingIntensityvb0
+	highp float View_IndirectCapsuleSelfShadowingIntensity;
+#define PrePadding_View_2712 PrePadding_View_2712vb0
+	highp float PrePadding_View_2712;
+#define PrePadding_View_2716 PrePadding_View_2716vb0
+	highp float PrePadding_View_2716;
+#define View_ReflectionEnvironmentRoughnessMixingScaleBiasAndLargestWeight View_ReflectionEnvironmentRoughnessMixingScaleBiasAndLargestWeightvb0
+	highp vec3 View_ReflectionEnvironmentRoughnessMixingScaleBiasAndLargestWeight;
+#define View_StereoPassIndex View_StereoPassIndexvb0
+	highp int View_StereoPassIndex;
+#define View_GlobalVolumeCenterAndExtent View_GlobalVolumeCenterAndExtentvb0
+	highp vec4 View_GlobalVolumeCenterAndExtent[4];
+#define View_GlobalVolumeWorldToUVAddAndMul View_GlobalVolumeWorldToUVAddAndMulvb0
+	highp vec4 View_GlobalVolumeWorldToUVAddAndMul[4];
+#define View_GlobalVolumeDimension View_GlobalVolumeDimensionvb0
+	highp float View_GlobalVolumeDimension;
+#define View_GlobalVolumeTexelSize View_GlobalVolumeTexelSizevb0
+	highp float View_GlobalVolumeTexelSize;
+#define View_MaxGlobalDistance View_MaxGlobalDistancevb0
+	highp float View_MaxGlobalDistance;
+#define View_bCheckerboardSubsurfaceProfileRendering View_bCheckerboardSubsurfaceProfileRenderingvb0
+	highp float View_bCheckerboardSubsurfaceProfileRendering;
+#define View_VolumetricFogInvGridSize View_VolumetricFogInvGridSizevb0
+	highp vec3 View_VolumetricFogInvGridSize;
+#define PrePadding_View_2892 PrePadding_View_2892vb0
+	highp float PrePadding_View_2892;
+#define View_VolumetricFogGridZParams View_VolumetricFogGridZParamsvb0
+	highp vec3 View_VolumetricFogGridZParams;
+#define PrePadding_View_2908 PrePadding_View_2908vb0
+	highp float PrePadding_View_2908;
+#define View_VolumetricFogSVPosToVolumeUV View_VolumetricFogSVPosToVolumeUVvb0
+	highp vec2 View_VolumetricFogSVPosToVolumeUV;
+#define View_VolumetricFogMaxDistance View_VolumetricFogMaxDistancevb0
+	highp float View_VolumetricFogMaxDistance;
+#define PrePadding_View_2924 PrePadding_View_2924vb0
+	highp float PrePadding_View_2924;
+#define View_VolumetricLightmapWorldToUVScale View_VolumetricLightmapWorldToUVScalevb0
+	highp vec3 View_VolumetricLightmapWorldToUVScale;
+#define PrePadding_View_2940 PrePadding_View_2940vb0
+	highp float PrePadding_View_2940;
+#define View_VolumetricLightmapWorldToUVAdd View_VolumetricLightmapWorldToUVAddvb0
+	highp vec3 View_VolumetricLightmapWorldToUVAdd;
+#define PrePadding_View_2956 PrePadding_View_2956vb0
+	highp float PrePadding_View_2956;
+#define View_VolumetricLightmapIndirectionTextureSize View_VolumetricLightmapIndirectionTextureSizevb0
+	highp vec3 View_VolumetricLightmapIndirectionTextureSize;
+#define View_VolumetricLightmapBrickSize View_VolumetricLightmapBrickSizevb0
+	highp float View_VolumetricLightmapBrickSize;
+#define View_VolumetricLightmapBrickTexelSize View_VolumetricLightmapBrickTexelSizevb0
+	highp vec3 View_VolumetricLightmapBrickTexelSize;
+#define View_StereoIPD View_StereoIPDvb0
+	highp float View_StereoIPD;
+#define View_IndirectLightingCacheShowFlag View_IndirectLightingCacheShowFlagvb0
+	highp float View_IndirectLightingCacheShowFlag;
+#define View_EyeToPixelSpreadAngle View_EyeToPixelSpreadAnglevb0
+	highp float View_EyeToPixelSpreadAngle;
+};
+
+layout(std140) uniform vb1
+{
+#define Primitive_LocalToWorld Primitive_LocalToWorldvb1
+	highp mat4 Primitive_LocalToWorld;
+#define Primitive_InvNonUniformScaleAndDeterminantSign Primitive_InvNonUniformScaleAndDeterminantSignvb1
+	vec4 Primitive_InvNonUniformScaleAndDeterminantSign;
+#define Primitive_ObjectWorldPositionAndRadius Primitive_ObjectWorldPositionAndRadiusvb1
+	highp vec4 Primitive_ObjectWorldPositionAndRadius;
+#define Primitive_WorldToLocal Primitive_WorldToLocalvb1
+	highp mat4 Primitive_WorldToLocal;
+#define Primitive_PreviousLocalToWorld Primitive_PreviousLocalToWorldvb1
+	highp mat4 Primitive_PreviousLocalToWorld;
+#define Primitive_PreviousWorldToLocal Primitive_PreviousWorldToLocalvb1
+	highp mat4 Primitive_PreviousWorldToLocal;
+#define Primitive_ActorWorldPosition Primitive_ActorWorldPositionvb1
+	highp vec3 Primitive_ActorWorldPosition;
+#define Primitive_UseSingleSampleShadowFromStationaryLights Primitive_UseSingleSampleShadowFromStationaryLightsvb1
+	float Primitive_UseSingleSampleShadowFromStationaryLights;
+#define Primitive_ObjectBounds Primitive_ObjectBoundsvb1
+	highp vec3 Primitive_ObjectBounds;
+#define Primitive_LpvBiasMultiplier Primitive_LpvBiasMultipliervb1
+	highp float Primitive_LpvBiasMultiplier;
+#define Primitive_DecalReceiverMask Primitive_DecalReceiverMaskvb1
+	float Primitive_DecalReceiverMask;
+#define Primitive_PerObjectGBufferData Primitive_PerObjectGBufferDatavb1
+	float Primitive_PerObjectGBufferData;
+#define Primitive_UseVolumetricLightmapShadowFromStationaryLights Primitive_UseVolumetricLightmapShadowFromStationaryLightsvb1
+	float Primitive_UseVolumetricLightmapShadowFromStationaryLights;
+#define Primitive_UseEditorDepthTest Primitive_UseEditorDepthTestvb1
+	float Primitive_UseEditorDepthTest;
+#define Primitive_ObjectOrientation Primitive_ObjectOrientationvb1
+	vec4 Primitive_ObjectOrientation;
+#define Primitive_NonUniformScale Primitive_NonUniformScalevb1
+	vec4 Primitive_NonUniformScale;
+#define Primitive_LocalObjectBoundsMin Primitive_LocalObjectBoundsMinvb1
+	highp vec3 Primitive_LocalObjectBoundsMin;
+#define PrePadding_Primitive_380 PrePadding_Primitive_380vb1
+	highp float PrePadding_Primitive_380;
+#define Primitive_LocalObjectBoundsMax Primitive_LocalObjectBoundsMaxvb1
+	highp vec3 Primitive_LocalObjectBoundsMax;
+#define Primitive_LightingChannelMask Primitive_LightingChannelMaskvb1
+	highp uint Primitive_LightingChannelMask;
+#define Primitive_LightmapDataIndex Primitive_LightmapDataIndexvb1
+	highp uint Primitive_LightmapDataIndex;
+#define Primitive_SingleCaptureIndex Primitive_SingleCaptureIndexvb1
+	highp int Primitive_SingleCaptureIndex;
+};
+
+layout(std140) uniform vb2
+{
+#define Bones_BoneMatrices Bones_BoneMatricesvb2
+	highp mat3x4 Bones_BoneMatrices[75];
+};
+
+
+void compiler_internal_AdjustInputSemantic(inout vec4 TempVariable)
+{
+#if HLSLCC_DX11ClipSpace
+	TempVariable.y = -TempVariable.y;
+	TempVariable.z = ( TempVariable.z + TempVariable.w ) / 2.0;
+#endif
+}
+
+void compiler_internal_AdjustOutputSemantic(inout vec4 Src)
+{
+#if HLSLCC_DX11ClipSpace
+	Src.y = -Src.y;
+	Src.z = ( 2.0 * Src.z ) - Src.w;
+#endif
+}
+
+bool compiler_internal_AdjustIsFrontFacing(bool isFrontFacing)
+{
+#if HLSLCC_DX11ClipSpace
+	return !isFrontFacing;
+#else
+	return isFrontFacing;
+#endif
+}
+INTERFACE_LOCATION(0) in highp vec4 in_ATTRIBUTE0;
+INTERFACE_LOCATION(3) in highp uvec4 in_ATTRIBUTE3;
+INTERFACE_LOCATION(4) in highp vec4 in_ATTRIBUTE4;
+void main()
+{
+	highp vec4 v0;
+	highp vec4 v1;
+	highp int i2;
+	i2 = int(in_ATTRIBUTE3.x);
+	highp mat3x4 m3;
+	m3[0].xyzw = in_ATTRIBUTE4.xxxx;
+	m3[1].xyzw = in_ATTRIBUTE4.xxxx;
+	m3[2].xyzw = in_ATTRIBUTE4.xxxx;
+	highp int i4;
+	i4 = int(in_ATTRIBUTE3.y);
+	highp mat3x4 m5;
+	m5[0].xyzw = in_ATTRIBUTE4.yyyy;
+	m5[1].xyzw = in_ATTRIBUTE4.yyyy;
+	m5[2].xyzw = in_ATTRIBUTE4.yyyy;
+	highp int i6;
+	i6 = int(in_ATTRIBUTE3.z);
+	highp mat3x4 m7;
+	m7[0].xyzw = in_ATTRIBUTE4.zzzz;
+	m7[1].xyzw = in_ATTRIBUTE4.zzzz;
+	m7[2].xyzw = in_ATTRIBUTE4.zzzz;
+	highp int i8;
+	i8 = int(in_ATTRIBUTE3.w);
+	highp mat3x4 m9;
+	m9[0].xyzw = in_ATTRIBUTE4.wwww;
+	m9[1].xyzw = in_ATTRIBUTE4.wwww;
+	m9[2].xyzw = in_ATTRIBUTE4.wwww;
+	highp mat3x4 m10;
+	m10 = (((matrixCompMult(m3,Bones_BoneMatrices[i2])+matrixCompMult(m5,Bones_BoneMatrices[i4]))+matrixCompMult(m7,Bones_BoneMatrices[i6]))+matrixCompMult(m9,Bones_BoneMatrices[i8]));
+	highp vec4 v11;
+	v11.w = 1.000000e+00;
+	v11.xyz = in_ATTRIBUTE0.xyz;
+	highp vec3 v12;
+	v12.x = dot(m10[0],v11);
+	v12.y = dot(m10[1],v11);
+	v12.z = dot(m10[2],v11);
+	highp vec4 v13;
+	v13.w = 1.000000e+00;
+	v13.xyz = ((((Primitive_LocalToWorld[0].xyz*v12.xxx)+(Primitive_LocalToWorld[1].xyz*v12.yyy))+(Primitive_LocalToWorld[2].xyz*v12.zzz))+(Primitive_LocalToWorld[3].xyz+View_PreViewTranslation));
+	v1.xyzw = v13;
+	v1.xyz = v13.xyz;
+	v0.xyzw = (View_TranslatedWorldToClip[3]+((View_TranslatedWorldToClip[2]*v1.zzzz)+((View_TranslatedWorldToClip[1]*v1.yyyy)+(View_TranslatedWorldToClip[0]*v1.xxxx))));
+	compiler_internal_AdjustOutputSemantic(v0);
+	gl_Position.xyzw = v0;
+}
+

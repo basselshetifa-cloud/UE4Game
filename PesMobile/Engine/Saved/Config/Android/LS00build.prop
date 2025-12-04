@@ -1,0 +1,612 @@
+#!/system/bin/sh
+# L SPEED MOD
+# Copyright (C) 2015 Paget96
+#=======================================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#=======================================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+divider="============================================="
+
+   clear
+   echo $divider
+   echo ""
+   echo "        build.prop tweaks"
+   echo ""
+   echo $divider  
+
+if [ "`grep Flag_tuner /system/build.prop`" ]; then
+        flag="\e[1;32mOn\e[0m"
+else
+        flag="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Better_voice_call_quality /system/build.prop`" ]; then
+        bvcq="\e[1;32mOn\e[0m"
+else
+        bvcq="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Fix_blackscreen_issue /system/build.prop`" ]; then
+        fbi="\e[1;32mOn\e[0m"
+else
+        fbi="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Improve_battery /system/build.prop`" ]; then
+        ib="\e[1;32mOn\e[0m"
+else
+        ib="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Better_scrolling /system/build.prop`" ]; then
+        bs="\e[1;32mOn\e[0m"
+else
+        bs="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Faster_boot /system/build.prop`" ]; then
+        fb="\e[1;32mOn\e[0m"
+else
+        fb="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Improve_image_quality /system/build.prop`" ]; then
+        iiq="\e[1;32mOn\e[0m"
+else
+        iiq="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Faster_streaming /system/build.prop`" ]; then
+        fs="\e[1;32mOn\e[0m"
+else
+        fs="\e[1;31mOff\e[0m"
+fi
+if [ "`grep Liquid_smooth_UI /system/build.prop`" ]; then
+        lsu="\e[1;32mOn\e[0m"
+else
+        lsu="\e[1;31mOff\e[0m"
+fi
+if [ "`grep L_SPEED_TWEAKS /system/build.prop`" ]; then
+        LS="\e[1;32mOn\e[0m"
+else
+        LS="\e[1;31mOff\e[0m"
+fi
+
+echo $divider
+sleep 1
+   echo -e "1. Flag tuner                           |$flag"
+   echo -e "2. Better voice call quality            |$bvcq"
+   echo -e "3. Fix blackscreen issue after call     |$fbi"
+   echo -e "4. Improve battery                      |$ib"
+   echo -e "5. Better scrolling                     |$bs"
+   echo -e "6. Faster boot                          |$fb"
+   echo -e "7. Improve image quality                |$iiq"
+   echo -e "8. Faster streaming                     |$fs"
+   echo -e "9. Liquid smooth UI (less lag)          |$lsu"
+   echo -e "10.L SPEED build.prop TWEAKS            |$LS"
+echo $divider
+   echo ""
+   echo ""
+   echo ""
+   echo "Go back - type  back  then enter"
+sleep 1
+    echo ""
+     echo ""
+   echo -n "Please select an option: "
+   read option
+
+   if [ $option -eq 1 ]; then
+if [ "`grep Flag_tuner /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Flag_tuner/d' /system/build.prop
+     	busybox sed -i '/ENFORCE_PROCESS_LIMIT/d' /system/build.prop
+     	busybox sed -i '/MAX_SERVICE_INACTIVITY/d' /system/build.prop
+     	busybox sed -i '/MIN_HIDDEN_APPS/d' /system/build.prop
+     	busybox sed -i '/MAX_HIDDEN_APPS/d' /system/build.prop
+     	busybox sed -i '/CONTENT_APP_IDLE_OFFSET/d' /system/build.prop
+     	busybox sed -i '/EMPTY_APP_IDLE_OFFSET/d' /system/build.prop
+     	busybox sed -i '/MAX_ACTIVITIES/d' /system/build.prop
+     	busybox sed -i '/ACTIVITY_INACTIVITY_RESET_TIME/d' /system/build.prop
+     	busybox sed -i '/MAX_RECENT_TASKS/d' /system/build.prop
+     	busybox sed -i '/MIN_RECENT_TASKS/d' /system/build.prop
+     	busybox sed -i '/APP_SWITCH_DELAY_TIME/d' /system/build.prop
+     	busybox sed -i '/MAX_PROCESSES/d' /system/build.prop
+     	busybox sed -i '/PROC_START_TIMEOUT/d' /system/build.prop
+     	busybox sed -i '/CPU_MIN_CHECK_DURATION/d' /system/build.prop
+     	busybox sed -i '/GC_TIMEOUT/d' /system/build.prop
+     	busybox sed -i '/SERVICE_TIMEOUT/d' /system/build.prop
+     	busybox sed -i '/MIN_CRASH_INTERVAL/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Flag_tuner/d' /system/build.prop
+     	busybox sed -i '/ENFORCE_PROCESS_LIMIT/d' /system/build.prop
+     	busybox sed -i '/MAX_SERVICE_INACTIVITY/d' /system/build.prop
+     	busybox sed -i '/MIN_HIDDEN_APPS/d' /system/build.prop
+     	busybox sed -i '/MAX_HIDDEN_APPS/d' /system/build.prop
+     	busybox sed -i '/CONTENT_APP_IDLE_OFFSET/d' /system/build.prop
+     	busybox sed -i '/EMPTY_APP_IDLE_OFFSET/d' /system/build.prop
+     	busybox sed -i '/MAX_ACTIVITIES/d' /system/build.prop
+     	busybox sed -i '/ACTIVITY_INACTIVITY_RESET_TIME/d' /system/build.prop
+     	busybox sed -i '/MAX_RECENT_TASKS/d' /system/build.prop
+     	busybox sed -i '/MIN_RECENT_TASKS/d' /system/build.prop
+     	busybox sed -i '/APP_SWITCH_DELAY_TIME/d' /system/build.prop
+     	busybox sed -i '/MAX_PROCESSES/d' /system/build.prop
+     	busybox sed -i '/PROC_START_TIMEOUT/d' /system/build.prop
+     	busybox sed -i '/CPU_MIN_CHECK_DURATION/d' /system/build.prop
+     	busybox sed -i '/GC_TIMEOUT/d' /system/build.prop
+     	busybox sed -i '/SERVICE_TIMEOUT/d' /system/build.prop
+     	busybox sed -i '/MIN_CRASH_INTERVAL/d' /system/build.prop
+	sleep 1
+echo "#Flag_tuner
+ENFORCE_PROCESS_LIMIT=false
+MAX_SERVICE_INACTIVITY=false
+MIN_HIDDEN_APPS=false
+MAX_HIDDEN_APPS=false
+CONTENT_APP_IDLE_OFFSET=false
+EMPTY_APP_IDLE_OFFSET=false
+MAX_ACTIVITIES=false
+ACTIVITY_INACTIVITY_RESET_TIME=false
+MAX_RECENT_TASKS=false
+MIN_RECENT_TASKS=false
+APP_SWITCH_DELAY_TIME=false
+MAX_PROCESSES=false
+PROC_START_TIMEOUT=false
+CPU_MIN_CHECK_DURATION=false
+GC_TIMEOUT=false
+SERVICE_TIMEOUT=false
+MIN_CRASH_INTERVAL=false" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 2 ]; then
+if [ "`grep Better_voice_call_quality /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+          busybox sed -i '/#Better_voice_call_quality/d' /system/build.prop
+     	busybox sed -i '/ro.ril.enable.amr.wideband/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+          busybox sed -i '/#Better_voice_call_quality/d' /system/build.prop
+     	busybox sed -i '/ro.ril.enable.amr.wideband/d' /system/build.prop
+	sleep 1
+echo "#Better_voice_call_quality
+ro.ril.enable.amr.wideband=1" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 3 ]; then
+if [ "`grep Fix_blackscreen_issue /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Fix_blackscreen_issue/d' /system/build.prop
+     	busybox sed -i '/ro.lge.proximity.delay/d' /system/build.prop
+     	busybox sed -i '/mot.proximity.delay/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Fix_blackscreen_issue/d' /system/build.prop
+     	busybox sed -i '/ro.lge.proximity.delay/d' /system/build.prop
+     	busybox sed -i '/mot.proximity.delay/d' /system/build.prop
+	sleep 1
+echo "#Fix_blackscreen_issue
+ro.lge.proximity.delay=25
+mot.proximity.delay=25" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 4 ]; then
+if [ "`grep Improve_battery /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Improve_battery/d' /system/build.prop
+     	busybox sed -i '/ro.mot.eri.losalert.delay/d' /system/build.prop
+     	busybox sed -i '/ro.ril.power_collapse/d' /system/build.prop
+     	busybox sed -i '/pm.sleep_mode/d' /system/build.prop
+     	busybox sed -i '/wifi.supplicant_scan_interval/d' /system/build.prop
+     	busybox sed -i '/power.saving.mode/d' /system/build.prop
+     	busybox sed -i '/ro.vold.umsdirtyratio/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Improve_battery/d' /system/build.prop
+     	busybox sed -i '/ro.mot.eri.losalert.delay/d' /system/build.prop
+     	busybox sed -i '/ro.ril.power_collapse/d' /system/build.prop
+     	busybox sed -i '/pm.sleep_mode/d' /system/build.prop
+     	busybox sed -i '/wifi.supplicant_scan_interval/d' /system/build.prop
+     	busybox sed -i '/power.saving.mode/d' /system/build.prop
+     	busybox sed -i '/ro.vold.umsdirtyratio/d' /system/build.prop
+	sleep 1
+echo "#Improve_battery
+ro.mot.eri.losalert.delay=1000
+ro.ril.power_collapse=1
+pm.sleep_mode=1
+wifi.supplicant_scan_interval=180
+power.saving.mode=1
+ro.vold.umsdirtyratio=20" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 5 ]; then
+if [ "`grep Better_scrolling /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Better_scrolling/d' /system/build.prop
+     	busybox sed -i '/windowsmgr.max_events_per_sec/d' /system/build.prop
+       	busybox sed -i '/ro.min_pointer_dur/d' /system/build.prop
+       	busybox sed -i '/ro.max.fling_velocity/d' /system/build.prop
+       	busybox sed -i '/ro.min.fling_velocity/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Better_scrolling/d' /system/build.prop
+     	busybox sed -i '/windowsmgr.max_events_per_sec/d' /system/build.prop
+       	busybox sed -i '/ro.min_pointer_dur/d' /system/build.prop
+       	busybox sed -i '/ro.max.fling_velocity/d' /system/build.prop
+       	busybox sed -i '/ro.min.fling_velocity/d' /system/build.prop
+	sleep 1
+echo "#Better_scrolling
+windowsmgr.max_events_per_sec=90
+ro.min_pointer_dur=8
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 6 ]; then
+if [ "`grep Faster_boot /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Faster_boot/d' /system/build.prop
+     	busybox sed -i '/ro.config.hw_quickpoweron/d' /system/build.prop
+     	busybox sed -i '/persist.sys.shutdown.mode/d' /system/build.prop
+     	busybox sed -i '/debug.sf.nobootanimation/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Faster_boot/d' /system/build.prop
+     	busybox sed -i '/ro.config.hw_quickpoweron/d' /system/build.prop
+     	busybox sed -i '/persist.sys.shutdown.mode/d' /system/build.prop
+     	busybox sed -i '/debug.sf.nobootanimation/d' /system/build.prop
+	sleep 1
+echo "#Faster_boot
+ro.config.hw_quickpoweron=true
+persist.sys.shutdown.mode=hibernate
+debug.sf.nobootanimation=1" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 7 ]; then
+if [ "`grep Improve_image_quality /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Improve_image_quality/d' /system/build.prop
+     	busybox sed -i '/ro.media.enc.jpeg.quality/d' /system/build.prop
+     	busybox sed -i '/ro.media.dec.jpeg.memcap/d' /system/build.prop
+     	busybox sed -i '/ro.media.enc.hprof.vid.bps/d' /system/build.prop
+     	busybox sed -i '/ro.media.capture.maxres/d' /system/build.prop
+     	busybox sed -i '/ro.media.panorama.defres/d' /system/build.prop
+     	busybox sed -i '/ro.media.panorama.frameres/d' /system/build.prop
+     	busybox sed -i '/ro.camcorder.videoModes/d' /system/build.prop
+     	busybox sed -i '/ro.media.enc.hprof.vid.fps/d' /system/build.prop
+     	busybox sed -i '/ro.media.dec.aud.wma.enabled/d' /system/build.prop
+     	busybox sed -i '/ro.media.dec.vid.wmv.enabled/d' /system/build.prop
+     	busybox sed -i '/ro.media.cam.preview.fps/d' /system/build.prop
+     	busybox sed -i '/ro.media.codec_priority_for_thumb/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Improve_image_quality/d' /system/build.prop
+     	busybox sed -i '/ro.media.enc.jpeg.quality/d' /system/build.prop
+     	busybox sed -i '/ro.media.dec.jpeg.memcap/d' /system/build.prop
+     	busybox sed -i '/ro.media.enc.hprof.vid.bps/d' /system/build.prop
+     	busybox sed -i '/ro.media.capture.maxres/d' /system/build.prop
+     	busybox sed -i '/ro.media.panorama.defres/d' /system/build.prop
+     	busybox sed -i '/ro.media.panorama.frameres/d' /system/build.prop
+     	busybox sed -i '/ro.camcorder.videoModes/d' /system/build.prop
+     	busybox sed -i '/ro.media.enc.hprof.vid.fps/d' /system/build.prop
+     	busybox sed -i '/ro.media.dec.aud.wma.enabled/d' /system/build.prop
+     	busybox sed -i '/ro.media.dec.vid.wmv.enabled/d' /system/build.prop
+     	busybox sed -i '/ro.media.cam.preview.fps/d' /system/build.prop
+     	busybox sed -i '/ro.media.codec_priority_for_thumb/d' /system/build.prop
+	sleep 1
+echo "#Improve_image_quality
+ro.media.enc.jpeg.quality=100
+ro.media.dec.jpeg.memcap=10000000
+ro.media.enc.hprof.vid.bps=10000000
+ro.media.capture.maxres=8m
+ro.media.panorama.defres=3264x1840
+ro.media.panorama.frameres=1280x720
+ro.camcorder.videoModes=true
+ro.media.enc.hprof.vid.fps=60
+ro.media.dec.aud.wma.enabled=1
+ro.media.dec.vid.wmv.enabled=1
+ro.media.cam.preview.fps=0
+ro.media.codec_priority_for_thumb=so" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 8 ]; then
+if [ "`grep Faster_streaming /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Faster_streaming/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-player/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-meta/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-scan/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-http/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-record/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-aac/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-qcp/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Faster_streaming/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-player/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-meta/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-scan/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-http/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-record/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-aac/d' /system/build.prop
+     	busybox sed -i '/media.stagefright.enable-qcp/d' /system/build.prop
+	sleep 1
+echo "#Faster_streaming
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-record=false
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 9 ]; then
+if [ "`grep Liquid_smooth_UI /system/build.prop`" ]; then
+    echo "Disabling build.prop tweak..."
+	sleep 1
+     	busybox sed -i '/#Liquid_smooth_UI/d' /system/build.prop
+     	busybox sed -i '/persist.service.lgospd.enable/d' /system/build.prop
+     	busybox sed -i '/persist.service.pcsync.enable/d' /system/build.prop
+     	busybox sed -i '/touch.presure.scale/d' /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+     	busybox sed -i '/#Liquid_smooth_UI/d' /system/build.prop
+     	busybox sed -i '/persist.service.lgospd.enable/d' /system/build.prop
+     	busybox sed -i '/persist.service.pcsync.enable/d' /system/build.prop
+     	busybox sed -i '/touch.presure.scale/d' /system/build.prop
+	sleep 1
+echo "#Liquid_smooth_UI
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+touch.presure.scale=0.001" >> /system/build.prop
+    echo "Done!"
+    echo ""
+     echo "Please reboot your device!!!"
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+   elif [ $option -eq 10 ]; then
+if [ "`grep L_SPEED_TWEAKS /system/build.prop`" ]; then
+    echo "This tweaks are unmoveable..."
+	sleep 1
+    echo "Don't worry about it ;)..."
+	sleep 1
+echo ""
+    echo "This tweaks will help you too much..."
+sleep 1
+echo ""
+    echo "SEE YA..."
+    echo ""
+     echo ""
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+	     sh system/bin/LS00build.prop
+   else
+    echo "Enabling build.prop tweak..."
+sleep 1
+echo "#L_SPEED_TWEAKS" >> /system/build.prop
+RAM=`free | grep Mem | awk '{print $2}'`
+if [ $RAM -lt 256000 ]; then
+echo "dalvik.vm.heapgrowthlimit=48m" >> /system/build.prop
+echo "dalvik.vm.heapsize=64m" >> /system/build.prop
+elif [ $RAM -lt 512000 ]; then
+echo "dalvik.vm.heapgrowthlimit=96m" >> /system/build.prop
+echo "dalvik.vm.heapsize=128m" >> /system/build.prop
+elif [ $RAM -lt 768000 ]; then
+echo "dalvik.vm.heapgrowthlimit=96m" >> /system/build.prop
+echo "dalvik.vm.heapsize=128m" >> /system/build.prop
+elif [ $RAM -lt 1024000 ]; then
+echo "dalvik.vm.heapgrowthlimit=128m" >> /system/build.prop
+echo "dalvik.vm.heapsize=256m" >> /system/build.prop
+else
+echo "dalvik.vm.heapgrowthlimit=256m" >> /system/build.prop
+echo "dalvik.vm.heapsize=512m" >> /system/build.prop
+fi;
+echo "ro.ril.hsxpa=2
+ro.ril.gprsclass=14
+ro.ril.hep=1
+ro.ril.enable.dtm=1
+ro.ril.transmitpower=true
+ro.ril.fast.dormancy.rule=1
+persist.cust.tel.eons=1
+ro.config.hw_fast_dormancy=1
+ro.ril.hsdpa.category=12
+ro.ril.enable.a52=0
+ro.ril.enable.a53=1
+ro.ril.enable.3g.prefix=1
+ro.ril.hsupa.category=8
+ro.config.nocheckin=1
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+profiler.force_disable_ulog=1
+profiler.force_disable_err_rpt=1
+persist.sys.use_dithering=0" >> /system/build.prop
+    echo "Done!"
+echo ""
+     echo "Please reboot your device!!!"
+echo ""
+sleep 1
+    echo ""
+	echo "Press enter to go back..."
+	read enterKey
+     sh system/bin/LS00build.prop
+   fi
+
+ elif [ $option -eq back ]; then
+    echo "Going back to L Wizard..."
+     sleep 3
+     sh system/bin/LS00Wizard
+   fi
+
+   exit
+ 
+   else
+   echo "Invalid option, please try again..."
+   sleep 1
+   sh system/bin/LS00build.prop
+   fi
