@@ -1,2 +1,0 @@
-DefaultShaderPath=UnityShaders/NightStock/
-DisableDayShaders=true
